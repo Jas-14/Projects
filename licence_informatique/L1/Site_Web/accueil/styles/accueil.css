@@ -1,0 +1,45 @@
+figure						/*Bloc image*/
+{
+width:15%;
+padding: 2px;
+margin-left:40%;
+}
+
+blockquote
+{
+border: 2px outset black;
+background-color:#fcff98;
+padding:10px;
+font-family: Calibri, sans serif;
+}
+
+div				/*Bloc div contenant la balise audio*/
+{
+margin-left:39.2vw;
+padding-left:0.5vw;
+border:2px solid tomato;
+width:15.3%;
+background-color:#fcff98;
+}
+
+div audio
+{
+margin-left:0.5vw;
+width:14vw;
+}
+
+div p		/*Concerne le p dans le div qui contient la balise audio. Il ne m'a pas semblé
+		important de faire une classe ou un id juste pour ces propriétés.*/
+{
+margin-left:3.5vw;
+transition:1s;
+}
+
+
+div:hover > p  
+{
+font-weight:bold;
+font-size:110%;
+margin-left:3vw;
+transition:1s;
+}

@@ -1,0 +1,30 @@
+main ul				/*Liste de la page*/
+{
+list-style-type: disclosure-closed;
+}
+
+figure					/*Base figure*/
+{
+width:30%;
+padding:8px;
+margin:3vw;
+margin-left:8vw;
+}
+
+figure img
+{
+padding-left:1vw;
+width:23vw;
+}
+
+.plat
+{
+background-color:transparent;
+transition:1s;
+}
+
+.plat:hover
+{
+background-color:#f0a231;
+transition:1s;
+}

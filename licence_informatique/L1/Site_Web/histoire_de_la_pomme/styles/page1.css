@@ -1,0 +1,65 @@
+aside			/*Infobox détails*/
+{
+float:left;
+margin-top:80px;
+padding:10px;
+}
+
+/*Images*/
+
+#carte
+{
+width:90%;
+padding:2px;
+margin-left:5%;
+}
+
+#M_sieversii
+{
+width:35%;
+padding:10px;
+float:left;
+}
+
+#Pomme_Api
+{
+width:35%;
+padding:20px;
+margin-bottom:1%;
+float: right;
+}
+/*Fin image*/
+
+/*Structuration*/
+
+.reprise			/*Clearer avec un div vide. Je n'ai pas trouvé le moyen de faire 
+					autrement avec les pseudos éléments*/
+{
+clear:both;
+}
+
+.p_Anti
+{
+margin-bottom:50px;
+}
+
+/*Fin Structuration*/
+
+/*Autres*/
+
+.espece
+{
+font-style: oblique;
+}
+
+.siecle_oeuvre
+{
+font-style:oblique;
+text-decoration:underline;
+}
+
+.var_sauvage
+{
+list-style-type: circle;
+}
+

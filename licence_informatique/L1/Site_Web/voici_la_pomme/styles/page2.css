@@ -1,0 +1,152 @@
+#degrade_pommes					/*Première image*/
+{
+width:50%;
+padding: 8px;
+margin-left:23%;
+}
+
+#development					/*Deuxième image*/
+{
+width:45%;
+padding: 8px;
+margin-left:25%;
+}
+
+aside
+{
+clear:both;
+width:50%;
+border: 3px dotted black;
+background-color: #ffb55d;
+margin-left:10%;
+margin-bottom:2%;
+padding:10px;
+}
+
+.var					/*Propriétés de base d'un bloc présentant une variété*/
+{
+width:35%;
+border:3px solid black;
+padding-left:10px;
+}
+
+.var h3					/*Propriétés de base d'un titre de bloc*/
+{
+font-family:Alex, sans-serif;
+margin:2vw;
+font-size: 3.3vw;
+text-decoration:none;
+}
+
+.var img				/*Propriétés de base d'une image d'un bloc*/
+{
+max-width:60%;
+border:2px solid black;
+transition:2s;
+}
+
+.var img:hover
+{
+transform:scale(1.5);
+transition:2s;
+}
+
+.Golden				/*Propriétés particulières liées à chaque bloc*/
+{
+background-color:#cab71b;
+margin-left:5%;
+margin-right:5%;
+float:left;
+}
+
+.Golden img
+{
+margin-left:7vw;
+}
+
+.Golden h3
+{
+margin-left:6vw;
+}
+
+.Topaz
+{
+background-color:#ff6351;
+margin-left:10%;
+float:left;
+}
+
+.Topaz img
+{
+margin-left:7vw;
+}
+
+.Topaz h3
+{
+margin-left:12vw;
+}
+
+.Pink_Lady
+{
+clear:both;
+background-color:#ff516e;
+margin-left:5%;
+margin-bottom:5%;
+float:left;
+}
+
+.Pink_Lady img
+{
+margin-left:7vw;
+}
+
+.Pink_Lady h3
+{
+font-family:Alex, sans serif;
+font-size:2.7vw;
+margin-left:4vw;
+}
+
+.Ariane
+{
+background-color:#d54f33;
+margin-top:5%;
+margin-right:8%;
+float:right;
+}
+
+.Ariane img
+{
+margin-left:8vw;
+}
+
+.Ariane h3
+{
+margin-left:10vw;
+}
+
+
+.ss_titre_var					/*Titres de la partie variétés*/
+{
+color:#ca601b;
+margin: 2px;
+}
+
+.espece
+{
+font-style: oblique;
+}
+
+.defaut				/*Pour éviter que l'ancre se comporte comme un lien de bas de page*/
+{
+background-image:none;
+font-size:20px;
+padding-left:0;
+}
+
+.defaut:hover
+{
+color:darkslateblue;
+padding-left:0;
+}
+

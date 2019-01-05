@@ -1,0 +1,38 @@
+figure
+{
+padding:8px;
+}
+
+aside
+{
+margin-left:5vw;
+margin-bottom:1vw;
+padding:5px;
+}
+
+#production_fr
+{
+width:30%;
+}
+
+#production_fr img
+{
+width:20vw;
+}
+
+#rendement_monde
+{
+width:55%;
+}
+
+#rendement_monde img
+{
+width:40vw;
+}
+
+aside h3
+{
+background-image:url('img/traffic-sign.png');
+background-repeat:no-repeat;
+background-position:3.5em;
+}
