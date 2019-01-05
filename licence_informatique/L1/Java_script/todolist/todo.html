@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="todolist.js"></script>
+</head>
+<body>
+
+<h1>Choses à faire aujourd'hui</h1>
+
+<form>
+<label>Ajouter un item: <input type="text" placeholder="Texte de l'item" name="item"/></label>
+<button type="submit">Ajouter l'item à la liste</button>
+
+
+</form>
+
+<h2>La liste</h2>
+<ol ondrop="drop(event)" ondragover="allowDrop(event)"></ol>
+
+<script>
+
+"use strict";
+
+document.querySelector("form button").addEventListener("click",Ajout_Item);
+
+
+
+</script>
+</body>
+</html>
+
