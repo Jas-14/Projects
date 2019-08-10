@@ -13,7 +13,6 @@ Ce dépôt git contient des projets et des minis projets informatiques qui ont �
     - **Java_script** Quelques mini projets en Java Script/*Some mini projects in Java Script*
       - **todolist** Application web de todolist/ *todolist web-app*
       - **webappli_contact** Application web de gestion d'un carnet d'adresse/*Address book management web-app*
-    - **Langage_C** Un exemple de programme en langage C/*Program example in C language*
     - **Site_Web** Projet de mini site web en HTML/CSS uniquement/*Mini WebSite project in HTML/CSS only*
   - **L2** Projets de deuxième année/*Second year projects*
     - **NimAndTicTacToe** Mini projet dans le cadre de l'introduction à la programmation orientée objet en Java/*Mini project as part of object-oriented programming model in Java*
