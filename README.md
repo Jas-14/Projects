@@ -16,4 +16,3 @@ Ce dépôt git contient des projets et des minis projets informatiques qui ont �
     - **Site_Web** Projet de mini site web en HTML/CSS uniquement/*Mini WebSite project in HTML/CSS only*
   - **L2** Projets de deuxième année/*Second year projects*
     - **NimAndTicTacToe** Mini projet dans le cadre de l'introduction à la programmation orientée objet en Java/*Mini project as part of object-oriented programming model in Java*
-    - **CoreWar** Projet en Java sur la base d'un sujet/*Java Project based on a subject*
