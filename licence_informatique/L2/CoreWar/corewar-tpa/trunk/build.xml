@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="CoreWar" default="compile" basedir=".">
+
+<property name="projet.sources.dir" value="src"/>
+<property name="projet.bin.dir" value="bin"/>
+<property name="projet.lib.dir" value="docs"/>
+<property name="projet.sources.jar" value="jar"/>
+
+<path id="projet.classpath">
+	<fileset dir="${projet.lib.dir}">
+		<include name="*.jar"/>
+	</fileset>
+	<pathelement location="${projet.bin.dir}" />
+</path>
+
+<target name="clear" description="Clean output directories">
+	<delete dir="${basedir}/docs" />
+        <delete dir="${basedir}/bin" />
+	<delete dir="${basedir}/jar"/>
+        <delete file="${basedir}/corewarfinal.jar" />
+	<delete file="${basedir}/corewarGN.jar"/>
+</target>
+
+<target name="compile" description="Compilation des classes" depends="init">
+	<echo message="Compilation du projet en mode definitif" />
+	<javac encoding="utf8" srcdir="${projet.sources.dir}" destdir="${projet.bin.dir}" debug="on" optimize="off" deprecation="on" includeantruntime="false">
+		<classpath refid="projet.classpath"/>
+	</javac>
+</target>
+
+<target name="init">
+<echo message="Initialisation de ${ant.project.name}"/>
+<delete dir="${basedir/bin}"/>
+<delete dir="${basedir/docs}"/>
+<delete dir="${basedir/jar}"/>
+<mkdir dir="${basedir}/bin"/>
+<mkdir dir="${basedir}/docs"/>
+<mkdir dir="${basedir}/jar"/>
+</target>
+
+<target name="runCoreWar" description="execution" depends="packagingCoreWar" >
+	<java jar="corewarfinal.jar" fork="true">
+		<classpath refid="projet.classpath"/>
+	<arg value="${arg0}" />
+        <arg value="${arg1}" />
+	<arg value="${arg2}" />
+	</java>
+</target>
+
+<target name="runGN" description="execution genetic program" depends="packagingGN">
+	<java jar="corewarGN.jar" fork="true">
+		<classpath refid="projet.classpath" />
+	<arg value="${arg0}" />
+	<arg value="${arg1}" />
+	</java>
+</target>
+<target name="javadoc">
+	<delete dir="${basedir}/docs"/>
+	<mkdir dir="${basedir}/docs"/>
+	<javadoc Encoding="utf-8" docencoding="utf-8" charset="utf-8" sourcepath="src" destdir="${projet.lib.dir}" >
+	<fileset dir="src" defaultexcludes="yes">
+		<include name="**" />
+	</fileset>
+	</javadoc>
+</target>
+
+<target name="packagingCoreWar" depends="compile">
+	<jar destfile="jar/corewarfinal.jar" basedir="${projet.bin.dir}">
+		<manifest>
+			<attribute name="Main-Class" value="main.Main" />
+		</manifest>
+	</jar>
+</target>
+
+<target name="packagingGN" depends="compile">
+	<jar destfile="jar/corewarGN.jar" basedir="${projet.bin.dir}">
+		<manifest>
+			<attribute name="Main-Class" value="geneticPgrm.MainGeneration" />
+		</manifest>
+	</jar>
+</target>
+
+</project>

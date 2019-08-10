@@ -1,0 +1,11 @@
+CMP #2 #1
+SUB #2 4
+MOV 4 1
+SUB #2 4
+MOV 1 #4
+ADD #1 @5
+SUB #2 4
+SUB #2 4
+MOV 1 #4
+JMP 0
+SUB #1 3

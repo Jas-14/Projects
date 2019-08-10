@@ -1,0 +1,408 @@
+\documentclass{beamer}
+\usetheme{Berkeley}
+\usecolortheme{seagull}
+\useoutertheme{infolines}
+\useinnertheme{circles}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{tikz}
+
+\setbeamertemplate{navigation symbols}{}% pour enlever les symboles de navigation en bas de chaque page
+\setbeamertemplate{footline}[frame number]%pour changer le pied de page par un affichage des numéros de slide
+ 
+\title[CoreWar]{Travail Personnel Approfondi: CoreWar}
+\author[]{Chaid Akacem Jasmine \and Baudin Hugo}
+\institute{Université de Caen}
+\date{\today}
+
+\begin{document} 
+\maketitle 
+
+\section*{Introduction} %H
+
+\begin{frame}
+%Sujet et présentation de notre réalisation
+\begin{itemize}
+    \item CoreWar
+    \item Développer une machine virtuelle
+    \item Construire des programmes performants
+\end{itemize}
+\end{frame}
+
+\tableofcontents %H
+
+\section{Lecture d'un programme en RedCode}
+\subsection{Reader et Parser}
+\begin{frame} %J
+\begin{center}
+{\Large Deux classes pour effectuer la lecture}
+\end{center}
+\begin{columns}
+\column{0.5\textwidth}
+Classe \texttt{Reader}
+\begin{itemize}
+    \item Lecture basique d'un fichier texte
+    \item Pré-traitement
+\end{itemize}
+\column{0.5\textwidth}
+Classe \texttt{Parser}
+\begin{itemize}
+    \item Création d'un programme exécutable
+    \item Découpage d'une ligne
+    \item Vérification
+    \item Conversion
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\subsection{Traitement}
+\begin{frame} %J
+\begin{itemize}
+    \item Découpage de la ligne
+    \item Traitement différencié selon opérateur
+\end{itemize}
+\begin{figure}
+    \centering
+\begin{tikzpicture}
+\node[draw=blue] (op) at (0,0) {OP};
+\node[draw=red] (modifierA) at (1,0) {M$_{A}$};
+\node[draw=red] (A) at (1.7,0) {A};
+\node[draw=teal] (modifierB) at (2.7,0) {M$_{B}$};
+\node[draw=teal] (B) at (3.4,0) {B};
+\end{tikzpicture}
+\caption{Schéma général d'une ligne RedCode}
+    \label{lineRed}
+\end{figure}
+\begin{exampleblock}{Exemple traitement différencié}
+La ligne \texttt{ADD \#0 1} est orienté vers le traitement par défaut.
+
+La ligne \texttt{JMP 5} est orienté vers le traitement pour les opérateurs à un champ.
+\end{exampleblock}
+\end{frame}
+
+\subsection{L'objet Instruction}
+\begin{frame}%H
+%Vérification + Conversion en objet Instruction (description de cet objet)
+\begin{center}
+    Les instructions
+\end{center}
+\begin{itemize}
+    \item Instruction : Classe abstraite
+    \item Trois méthodes principales
+\end{itemize}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node[draw=black] (dat) at (0,0) {DAT};
+    \node[draw=black] (mov) at (1.2,0) {MOV};
+    \node[draw=black] (jmp) at (2.4,0) {JMP};
+    \node[draw=black] (jmz) at (3.6,0) {JMZ};
+    \node[draw=black] (add) at (4.8,0) {ADD};
+    \node[draw=black] (sub) at (6,0) {SUB};
+    \node[draw=black] (djz) at (7.2,0) {DJZ};
+    \node[draw=black] (cmp) at (8.4,0) {CMP};
+    \node[draw=black] (ins) at (4,3) {Instruction};
+    
+    \draw[->] (dat) -- (ins);
+    \draw[->] (mov) -- (ins);
+    \draw[->] (jmp) -- (ins);
+    \draw[->] (jmz) -- (ins);
+    \draw[->] (add) -- (ins);
+    \draw[->] (sub) -- (ins);
+    \draw[->] (djz) -- (ins);
+    \draw[->] (cmp) -- (ins);
+    \end{tikzpicture}
+    \caption{Héritage de l'instruction}
+    \label{fig:instruction}
+\end{figure}
+\end{frame}
+
+\subsection{Les erreurs}
+\begin{frame}%J
+\begin{center}
+Une gestion des erreurs pendant la lecture
+\end{center}
+\begin{columns}
+\column{0.35\textwidth}
+Erreurs de syntaxe
+\begin{itemize}
+    \item Ligne non conforme
+    \item Opérateur/Mode d'adressage non reconnu
+    \item Adresse qui n'est pas un nombre
+\end{itemize}
+\column{0.65\textwidth}
+Instructions non exécutables
+\begin{itemize}
+    \item Ligne syntaxiquement correcte
+    \item Nécessite qu'un objet Instruction soit instancié
+    \item Bloquée avant son exécution
+\end{itemize}
+\end{columns}
+\begin{exampleblock}{Exemple Instruction non exécutable}
+La ligne \texttt{ADD 0 1} n'est pas exécutable
+
+La ligne \texttt{DAT 0} n'est pas exécutable (Raison de \emph{cohérence})
+\end{exampleblock}
+\end{frame}
+
+\section{CoreWar}
+
+\subsection{Classes principales}
+\begin{frame}%J
+\begin{center}
+{\Large La partie CoreWar: deux objets principaux}
+\end{center}
+\begin{columns}
+\column{0.55\textwidth}
+La classe \texttt{VirtualMachine}
+\begin{itemize}
+    \item Machine virtuelle du logiciel
+    \item Exécution
+    \item Stockage
+    \item Insertion des programmes
+\end{itemize}
+\column{0.45\textwidth}
+La classe \texttt{Warrior}
+\begin{itemize}
+    \item Un programme à exécuter
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\subsection{Début du jeu}
+\begin{frame}%J
+\begin{center}
+Deux initialisations de la mémoire
+\end{center}
+\begin{itemize}
+    \item Avec des données (Ligne \texttt{DAT \#0})
+    \item Avec les deux programmes qui vont se combattre
+    \begin{enumerate}
+        \item Placement du pointeur du premier programme
+        \item Placement du premier programme
+        \item Placement du pointeur du second programme selon les contraintes
+        \item Placement du second programme
+    \end{enumerate}
+\end{itemize}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node (p1d) at (0,0) {Début P1};
+    \node (p1f) at (6,0) {Fin P1};
+    \node (pp1) at (0,1.5) {Pointeur P1};
+    
+    \node (nop2) at (3,0.3) {Pas de P2};
+    \draw[dashed, red] (p1d) -- (p1f);
+    \draw[->] (pp1) -- (p1d);
+    \end{tikzpicture}
+    \caption{Contraintes de placement}
+    \label{fig:my_label}
+\end{figure}
+\end{frame}
+
+\subsection{La boucle du jeu}
+\begin{frame}%H
+\begin{overprint}
+\onslide<1>
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node[draw=red] (pointeur) at (0,3) {Pointeur};
+    \node[draw=blue] (instru1) at (3,3) {0 : \texttt{MOV 0 1}};
+    \node[draw=black] at (3,2) {1 : Instruction B};
+    \node[draw=black] at (3,1) {2 : Instruction C};
+    \node[draw=black] at (3,0) {3 : Instruction D};
+    \draw[->] (pointeur) -- (instru1);
+    \end{tikzpicture}
+    \caption{Boucle de jeu}
+    \label{fig:Boucle 1}
+\end{figure}
+
+\onslide<2>
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node[draw=red] (pointeur) at (0,3) {Pointeur};
+    \node[draw=blue] (instru1) at (3,3) {0 : \texttt{MOV 0 1}};
+    \node[draw=blue] at (3,2) {1 : \texttt{MOV 0 1}};
+    \node[draw=black] at (3,1) {2 : Instruction C};
+    \node[draw=black] at (3,0) {3 : Instruction D};
+    \draw[->] (pointeur) -- (instru1);
+    \end{tikzpicture}
+    \caption{Boucle de jeu}
+    \label{fig:Boucle 2}
+\end{figure}
+
+\onslide<3>
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node[draw=red] (pointeur) at (0,2) {Pointeur};
+    \node[draw=blue] at (3,3) {0 : \texttt{MOV 0 1}};
+    \node[draw=blue] (instru2) at (3,2) {1 : \texttt{MOV 0 1}};
+    \node[draw=black] at (3,1) {2 : Instruction C};
+    \node[draw=black] at (3,0) {3 : Instruction D};
+    \draw[->] (pointeur) -- (instru2);
+    \end{tikzpicture}
+    \caption{Boucle de jeu}
+    \label{fig:Boucle 3}
+\end{figure}
+
+\onslide<4>
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node[draw=red] (pointeur) at (0,2) {Pointeur};
+    \node[draw=blue] at (3,3) {0 : \texttt{JMP 1}};
+    \node[draw=blue] (instru2) at (3,2) {1 : \texttt{DAT \#0}};
+    \node[draw=black] at (3,1) {2 : Instruction C};
+    \node[draw=black] at (3,0) {3 : Instruction D};
+    \draw[->] (pointeur) -- (instru2);
+    \end{tikzpicture}
+    \caption{Boucle de jeu}
+    \label{fig:Boucle Fin}
+\end{figure}
+\end{overprint}
+
+\end{frame}
+
+\section{Génération de programme}
+
+\subsection{L'algorithme génétique}
+\begin{frame}%H
+\begin{columns}
+\column{0.4\textwidth}
+\begin{itemize}
+    \item Créer un programme performant
+    \item Analogue à la biologie
+    \begin{itemize}
+        \item Sélection
+        \item Mutations
+        \item Croisement des individus sélectionnés
+    \end{itemize}
+    \item Début aléatoire
+\end{itemize}
+\column{0.6\textwidth}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \node[draw=black] (GA) at (0,4) {Génération aléatoire};
+        
+        \node[draw=black] (C) at (0,3) {Combats};
+        
+        \node[draw=black] (S) at (0,2) {Sélection};
+        
+        \node[draw=black] (M) at (0,1) {Mutations};
+        
+        \node[draw=black] (Cr) at (0,0) {Croisements};
+        
+        \draw[->] (GA) -- (C);
+        \draw[->] (C) -- (S);
+        \draw[->] (S) -- (M);
+        \draw[->] (M) -- (Cr);
+        
+        \draw[bend right,->,red] (1.1,0) to node [auto,swap]{Boucle} (0.9,3);
+    \end{tikzpicture}
+    \caption{Déroulement de l'algorithme}
+    \label{fig:GP}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\subsection{Combat}
+\begin{frame}%J
+\begin{center}
+{\Large Partie Combat}
+\begin{itemize}
+    \item Méthode \texttt{fight}
+    \item Adaptation au problème
+    \item Statistiques sur les Warriors
+\end{itemize}
+\vspace{5mm}
+\begin{exampleblock}{Notre implémentation: \emph{Tournoi}}
+\begin{itemize}
+    \item Complexité raisonnable
+    \item Les meilleurs confrontés aux meilleurs
+\end{itemize}
+\end{exampleblock}
+\end{center}
+\end{frame}
+
+\subsection{Sélection}
+\begin{frame}
+\begin{center}
+{\Large Partie Sélection}
+\begin{itemize}
+    \item Méthode \texttt{doSelection}
+    \item Garder la meilleure partie de la population
+    \item A partir des statistiques générées
+\end{itemize}
+\vspace{5mm}
+\begin{exampleblock}{Notre implémentation: \emph{Les 20 meilleurs}}
+\begin{itemize}
+    \item Adapté à notre implémentation du combat
+    \item Complexité d'un algorithme de tri
+\end{itemize}
+\end{exampleblock}
+\end{center}
+\end{frame}
+
+\subsection{Evolution}
+\begin{frame}%J
+\begin{center}
+{\Large Partie Evolution}
+\begin{itemize}
+    \item Méthode \texttt{mutAllWarriors}
+    \item Outils de base
+    \item Réutilisation avec un seul outil, muni des probabilités
+    \item Intervient sur les programmes
+\end{itemize}
+\begin{exampleblock}{Notre implémentation}
+Outils de base
+\begin{itemize}
+    \item Remplacement d'une ligne
+    \item Délétion d'une ligne
+    \item Rajout d'une ligne
+\end{itemize}
+Le tout encapsulé dans une classe qui va utiliser les trois outils successivement.
+\end{exampleblock}
+\end{center}
+\end{frame}
+
+\subsection{Croisement}
+\begin{frame}%H
+\begin{center}
+{\Large Partie Croisement}
+\end{center}
+\begin{itemize}
+    \item Méthode \texttt{cross} et \texttt{crossAll}
+    \item Nombre de croisements définis
+    \item Prend les instructions des meilleurs programmes
+    \item Créé de nouveaux programmes
+\end{itemize}
+\begin{exampleblock}{Notre implémentation}
+\begin{itemize}
+    \item Sélection aléatoire de deux programmes
+    \item Sélection aléatoire de ligne
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\section{Conclusion}%J
+
+\begin{frame}
+\begin{center}
+{\Large Conclusion}
+\vspace{5mm}
+\begin{itemize}
+    \item Un CoreWar complétement orienté objet
+    \item Une gestion des erreurs avant exécution
+    \item Une génération de programme modulable selon les besoins
+\end{itemize}
+\end{center}
+\end{frame}
+
+\end{document}

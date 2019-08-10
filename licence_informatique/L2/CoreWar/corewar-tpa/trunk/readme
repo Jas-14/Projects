@@ -1,0 +1,59 @@
+Lancement du logiciel
+
+Toutes les commandes précisées ci dessous doivent être exécutées dans le répertoire courant à ce readme.
+
+Avec les jar générés dans dist:
+
+CoreWar en interface graphique: java -jar "dist/corewarfinal.jar" g 
+
+CoreWar en console: java -jar "dist/corewarfinal.jar" c cheminprogramme1 cheminprogramme2
+
+Les chemins peuvent être relatifs.
+
+Algorithme génétique avec paramètres standards: java -jar "dist/corewarGN.jar" 
+
+Algorithme génétique en précisant le nombre d'itérations et le nombres de Warrior à générer aléatoirement:
+
+java -jar "dist/corewarGN.jar" nbIt nbWarriors
+
+Attention: nbWarriors doit être supérieur à 40 en raison de nos méthodes de sélection.
+
+
+Vous pouvez néanmoins compiler les sources et exécuter directement le résultat
+
+Pour compiler: ant compile
+
+Les .class générés se situent dans le dossier bin. 
+
+Exécution avec ant
+
+CoreWar avec interface graphique: ant runCoreWar -Darg0=g
+
+CoreWar en mode console: ant runCoreWar -Darg0=c -Darg1=cheminprogramme1 -Darg2=cheminprogramme2
+
+Algorithme génétique avec les paramètres standards: ant runGN  
+
+Algorithme génétique en précisant le nombre d'itérations et le nombre de Warriors à générer aléatoirement
+
+ant runGN -Darg0=nbIt -Darg1=nbWarriors
+
+Ces commandes entrainent directement la compilation du projet et son packaging en .jar
+
+Exécuter sans le script ant
+
+Si après avoir compilé, vous voulez directement exécuter, voici les commandes.
+
+CoreWar en interface graphique: java -cp "bin" main.Main g
+
+CoreWar en console: java -cp "bin" main.Main c cheminprogramme1 cheminprogramme2
+
+Algorithme génétique avec paramètres standards: java -cp "bin" geneticPgrm.MainGeneration 
+
+Algorithme génétique avec le nombre d'itérations et le nombre de Warriors à générer aléatoirement
+
+java -cp "bin" geneticPgrm.MainGeneration nbIt nbWarriors
+
+
+La documentation est générable avec la commande ant javadoc, qui placera la documentation dans le dossier doc.
+
+Nettoyer le dépôt: ant clear

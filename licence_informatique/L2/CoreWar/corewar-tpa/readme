@@ -1,0 +1,23 @@
+CoreWar Version Finale
+
+Auteurs: Jasmine Chaid Akacem, Hugo Baudin
+
+Description: Logiciel permettant de faire s'affronter deux programmes RedCode dans
+une machine virtuelle. L'Interface est laissée au goût de l'utilisateur: console
+ou interface graphique minimaliste.
+
+Ce logiciel permet aussi de générer des programmes performants à partir d'un algorithme
+génétique. Mode console uniquement.
+
+Architecture du dépôt:
+
+trunk: logiciel, sources, anciennes versions, nécessaire pour l'exécution
+
+      dist: Distribution du logiciel, déjà prête à être utilisée
+      programmes: Quelques exemples des programmes générés avec notre Logiciel
+      src: Sources de notre Logiciel
+      tags: Versions antérieures de notre logiciel
+
+expression: rapport en pdf de notre projet
+
+     rapport: sources LaTeX de notre rapport
