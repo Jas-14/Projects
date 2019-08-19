@@ -1,8 +1,7 @@
 # Editeur de livre dont vous êtes le héros
 
-<p align=center>
 [English](README.en.md)
-</p>
+
 
 ### But du projet
 
