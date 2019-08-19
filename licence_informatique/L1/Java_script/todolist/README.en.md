@@ -1,8 +1,6 @@
 # Todolist Application
 
-<p align=center>
 [Français](README.md)
-</p>
 
 ### Application goal
 

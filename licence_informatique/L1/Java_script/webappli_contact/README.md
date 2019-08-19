@@ -1,8 +1,7 @@
 # Application Contact
 
-<p align=center>
 [English](README.en.md)
-</p>
+
 
 ### But de l'application
 

@@ -1,8 +1,6 @@
 # Projet Site Web L1
 
-<p align=center>
 [English](README.en.md)
-</p>
 
 ### But du projet
 

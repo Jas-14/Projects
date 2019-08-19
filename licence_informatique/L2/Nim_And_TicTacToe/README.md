@@ -1,8 +1,6 @@
 # Application de jeux
 
-<p align=center>
 [English](README.en.md)
-</p>
 
 
 ### But du projet

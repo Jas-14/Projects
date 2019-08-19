@@ -1,8 +1,7 @@
 # Games Application
 
-<p align=center>
 [Français](README.md)
-</p>
+
 
 ### Project Goal
 

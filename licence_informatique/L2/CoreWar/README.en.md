@@ -1,8 +1,6 @@
 # CoreWar Project
 
-<p align=center>
 [Français](README.md)
-</p>
 
 ### Project Goal
 
