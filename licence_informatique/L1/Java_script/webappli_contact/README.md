@@ -1,7 +1,13 @@
-# Application Contact/*Contact App*
+# Application Contact
 
-### But de l'application/*App goal*
+<p align=center>
+[English](README.en.md)
+</p>
+
+### But de l'application
 
 Gérer une liste de contacts avec sauvegarde dans le cache de la liste modifiée.
 
-*Manage contact list with a save in browser cache*
+Tâches restantes:
+
+- [ ] Lien direct vers l'application
