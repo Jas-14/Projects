@@ -1,31 +1,29 @@
-# Editeur de livre dont vous êtes le héros/*Book "where you are the hero" editor*
+# Editeur de livre dont vous êtes le héros
 
-### But du projet/Project goal
+<p align=center>
+[English](README.en.md)
+</p>
+
+### But du projet
 
 Concevoir un logiciel permettant de créer et d'éditer des livres dont vous êtes le héros, ainsi qu'un autre logiciel pour les lire.
 
-*Develop a software to create and edit books "where you are the hero" and an another software to read them*
 
-Projet de groupe/*Group project*
+Projet de groupe
 
-Langage: Python/*Language: Python*
+Langage: Python
 
-### Pour démarrer le projet/*To launch the project*
+### Pour démarrer le projet
 
 Pour démarrer l'éditeur de livre, exécuter le fichier 'Editeur_de_livre.py' dans un terminal avec python3 ou dans tout logiciel approprié.
 
-*To launch the project, execute 'Editeur_de_livre.py' file in a terminal with python3 or other compatible software*
-
 Pour démarrer le mode lecture, exécuter le fichier 'Modelecture.py" dans un terminal avec python3 ou tout logiciel approprié.
-
-*To launch read mode, execute 'Modelecture.py' in a terminal with python3 or other compatible software*
 
 Le fichier "Rapport de projet.pdf" présente les fonctionnalités de notre logiciel et nos choix de conception. Seulement disponible en français.
 
-*"Rapport de projet.pdf" file introduce software's functionalities and our development choices. Only available in French*
 
-Tâches restantes/*Remaining tasks*
+Tâches restantes
 
-- [ ] : Créer un exécutable bash/*Create bash executable file*
+- [ ] : Créer un exécutable bash
 
-- [ ] : Créer un fichier exe/*Create exe file*
+- [ ] : Créer un fichier exe
