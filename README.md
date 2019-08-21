@@ -1,8 +1,7 @@
 # Projets divers
 
-<p align=center>
 [English](README.en.md)
-</p>
+
 
 Ce dépôt git contient des projets et des minis projets informatiques qui ont été conçus par moi même ou en groupe.
 
@@ -11,7 +10,7 @@ Ce dépôt git contient des projets et des minis projets informatiques qui ont �
 
 - **licence_informatique** *Projets dans le cadre de ma formation en licence informatique*
   - **L1** *Projets de première année*
-    - **Editeur_de_livre** *Un éditeur de livre dont vous êtes le héros en langage Python*
+    - [**Editeur_de_livre**](licence_informatique/L1/Editeur_de_livre/) *Un éditeur de livre dont vous êtes le héros en langage Python*
     - **Java_script** *Quelques mini projets en Java Script*
       - **todolist** *Application web de todolist*
       - **webappli_contact** *Application web de gestion d'un carnet d'adresse*
