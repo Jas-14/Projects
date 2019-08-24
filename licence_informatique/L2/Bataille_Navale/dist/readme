@@ -1,0 +1,6 @@
+Lancement du logiciel:
+
+java -jar bataille-naval.jar [option]
+
+Argument option: c pour jeu en console
+                 g pour jeu en interface graphique
